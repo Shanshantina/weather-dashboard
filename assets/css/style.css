@@ -1,0 +1,44 @@
+body {
+    font-family: 'Noto Serif', serif;
+    background-color: rgba(155, 202, 214, 0.6);
+    font-size: 20px;
+    color: rgba(3, 38, 47, 0.73);
+    line-height: 1.8;
+}
+
+.header {
+    background-color: #4bcff3;
+    background-image: linear-gradient(45deg, #4bcff3 0%, #ad33c1bf 52%, #87f1b6b8 90%);
+    height: 6vw;
+}
+
+#today-info {
+    margin-top: 50px;
+    height: 16vw;
+}
+
+#search-content {
+    margin-top: 50px;
+}
+
+#search-bar {
+    margin-top: 35px;
+}
+
+
+#clear-history {
+    margin-top: 50px;
+}
+
+
+.btn {
+    background-color: #ef95f3;
+    background-image: linear-gradient(45deg, #ef95f3 0%, #4bcff3 52%, #87f1b6cf 90%);
+    transition: all .5s ease-out;
+    background-size: 1px 100px;
+    background-position: 0 -10px;
+}
+
+.btn:hover {
+    background-position: 1px -50px;
+}

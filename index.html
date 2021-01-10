@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <!-- weather dashboard header -->
+    <header class="text-center text-light header">
+        <h1 class="py-4">Weather Dashboard</h1>
+    </header>
+
+    <!-- the left part of the webpage, add the city search bar, clear history button and the area contents the search history list-->
+    <main class="container-fluid">
+        <div class="d-flex justify-content-around">
+            <div class="col-sm-2 mx-4" id="search-content">
+                <h3>Search for a City</h3>
+    
+                <form class="form-inline row" id="search-bar">          
+                  <input type="password" class="form-control col-sm-10" id="cityname" placeholder="enter a cityname">
+                  <button type="search" class="btn btn-default col-sm-2"><i class='fa fa-search'></i></button>                  
+                </form>
+                <button type="clear" class="btn" id="clear-history">Clear History</button>
+                              
+                <ul class="list-group my-4" id="history-list">
+                    <li class="list-group-item list-group-item-info">Cras justo odio</li>
+                    <li class="list-group-item list-group-item-info">Dapibus ac facilisis in</li>
+                    <li class="list-group-item list-group-item-info">Morbi leo risus</li>
+                    <li class="list-group-item list-group-item-info">Porta ac consectetur ac</li>
+                    <li class="list-group-item list-group-item-info">Vestibulum at eros</li>
+                </ul>            
+            </div>
+
+            <!-- the right top part of the webpage, shows the searched city current date weather -->
+            <div class="row mx-3">
+                <div class="col-sm-12" id="today-info">
+                    <div>
+                        <h3>City Name</h3>
+                        <p class="col-md-12">Temperature:</p>
+                        <p class="col-md-12">Humidity:</p>
+                        <p class="col-md-12">Wind Speed:</p>
+                        <p class="col-md-12">UV Index:</p>
+                    </div>
+                </div> 
+                
+                <!-- the right bottom part of the webpage, shows the 5 days forecast weather -->
+                <div class="col-sm-12" >
+                    <h3>5-Day Forecast</h3>
+                    <div class="row my-5">
+                        <div class="card col-md-2 mx-2" style="width: 15rem;">
+                            <div class="card-body" id="forecast">
+                              <h5 class="card-title">Date</h5>
+                              <div>Icon</div>
+                              <p>Temp:</p>
+                              <p>Humidity</p>
+                            </div>
+                        </div>
+    
+                        <div class="card col-md-2 mx-2" style="width: 15rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <div>Icon</div>
+                              <p>Temp:</p>
+                              <p>Humidity</p>
+                            </div>
+                        </div>
+    
+                        <div class="card col-md-2 mx-2" style="width: 15rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <div>Icon</div>
+                              <p>Temp:</p>
+                              <p>Humidity</p>
+                            </div>
+                        </div>
+    
+                        <div class="card col-md-2 mx-2" style="width: 15rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <div>Icon</div>
+                              <p>Temp:</p>
+                              <p>Humidity</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card col-md-2 mx-2" style="width: 15rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <div>Icon</div>
+                              <p>Temp:</p>
+                              <p>Humidity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>      
+    </main> 
+    
+    <script src="./assets/js/weather.js"></script>
+
+</body>
+</html>
