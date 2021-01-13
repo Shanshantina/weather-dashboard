@@ -42,3 +42,24 @@ body {
 .btn:hover {
     background-position: 1px -50px;
 }
+
+/* change UV color base on the UVI number */
+.low {
+    background-color: rgb(28, 196, 131);
+}
+
+.moderate {
+    background-color: rgb(212, 210, 45);
+}
+
+.high {
+    background-color: rgb(223, 146, 94);
+}
+
+.veryHigh {
+    background-color: rgb(212, 43, 43);
+}
+
+.extreme {
+    background-color: rgb(228, 63, 178);
+}

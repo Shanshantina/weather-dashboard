@@ -25,7 +25,7 @@
     
                 <form class="form-inline row" id="search-bar">          
                   <input type="text" class="form-control col-sm-10" id="cityname" placeholder="enter a cityname">
-                  <button type="search" class="btn btn-default col-sm-2" id= "searchName"><i class='fa fa-search'></i></button>                  
+                  <button type="search" class="btn btn-default col-sm-2" id= "searchWeather"><i class='fa fa-search'></i></button>                  
                 </form>
                 <button type="clear" class="btn" id="clear-history">Clear History</button>
                               
@@ -42,17 +42,17 @@
             <div class="row mx-3">
                 <div class="col-sm-12" id="today-info">
                     <div>
-                        <h3>City Name</h3>
-                        <p class="col-md-12">Temperature:</p>
-                        <p class="col-md-12">Humidity:</p>
-                        <p class="col-md-12">Wind Speed:</p>
-                        <p class="col-md-12">UV Index:</p>
+                        <h2 class="subtitle"><span id="searchedCity"></span></h2>
+                        <p class="col-md-12">Temperature: <span id="cityTemperature"></span></p>
+                        <p class="col-md-12">Humidity: <span id="cityHumidity"></span></p>
+                        <p class="col-md-12">Wind Speed: <span id="cityWindSpeed"></span></p>
+                        <p class="col-md-12">UV Index: <span id="cityUV"></span></p>
                     </div>
                 </div> 
                 
                 <!-- the right bottom part of the webpage, shows the 5 days forecast weather -->
                 <div class="col-sm-12" >
-                    <h3>5-Day Forecast</h3>
+                    <h2>5-Day Forecast</h2>
                     <div class="row my-5">
                         <div class="card col-md-2 mx-2" style="width: 15rem;">
                             <div class="card-body" id="forecast">
