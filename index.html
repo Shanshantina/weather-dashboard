@@ -19,7 +19,7 @@
 
     <!-- the left part of the webpage, add the city search bar, clear history button and the area contents the search history list-->
     <main class="container-fluid">
-        <div class="d-flex justify-content-around">
+        <div class="content-wrapper row">
             <div class="col-sm-2 mx-4" id="search-content">
                 <h3>Search for a City</h3>
     
@@ -29,82 +29,39 @@
                 </form>
                 <button type="clear" class="btn" id="clear-history">Clear History</button>
                               
-                <ul class="list-group my-4" id="history-list">
-                    <li class="list-group-item list-group-item-info">Cras justo odio</li>
-                    <li class="list-group-item list-group-item-info">Dapibus ac facilisis in</li>
-                    <li class="list-group-item list-group-item-info">Morbi leo risus</li>
-                    <li class="list-group-item list-group-item-info">Porta ac consectetur ac</li>
-                    <li class="list-group-item list-group-item-info">Vestibulum at eros</li>
-                </ul>            
+                <div class="card-body" id="history-list">
+                    <!-- searched city history -->             
+                </div>            
             </div>
 
             <!-- the right top part of the webpage, shows the searched city current date weather -->
-            <div class="row mx-3">
+            <div class="results col-sm-9">
                 <div class="col-sm-12" id="today-info">
-                    <div>
+    
                         <h2 class="subtitle"><span id="searchedCity"></span></h2>
-                        <p class="col-md-12">Temperature: <span id="cityTemperature"></span></p>
-                        <p class="col-md-12">Humidity: <span id="cityHumidity"></span></p>
-                        <p class="col-md-12">Wind Speed: <span id="cityWindSpeed"></span></p>
-                        <p class="col-md-12">UV Index: <span id="cityUV"></span></p>
-                    </div>
+                        <p class="col-md-12"><span id="cityTemperature"></span></p>
+                        <p class="col-md-12"><span id="cityHumidity"></span></p>
+                        <p class="col-md-12"><span id="cityWindSpeed"></span></p>
+                        <p class="col-md-12" id="uvIndex"></p>
+        
                 </div> 
                 
                 <!-- the right bottom part of the webpage, shows the 5 days forecast weather -->
-                <div class="col-sm-12" >
-                    <h2>5-Day Forecast</h2>
-                    <div class="row my-5">
-                        <div class="card col-md-2 mx-2" style="width: 15rem;">
-                            <div class="card-body" id="forecast">
-                              <h5 class="card-title">Date</h5>
-                              <div>Icon</div>
-                              <p>Temp:</p>
-                              <p>Humidity</p>
-                            </div>
+                <div class="col-sm-12">                    
+                        <div class="row my-5">
+                            <div class="col-md-2 mx-2" id="forecast" style="width: 15rem;"></div>
+                                <!-- add 5 days forecast in here -->                    
                         </div>
-    
-                        <div class="card col-md-2 mx-2" style="width: 15rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <div>Icon</div>
-                              <p>Temp:</p>
-                              <p>Humidity</p>
-                            </div>
-                        </div>
-    
-                        <div class="card col-md-2 mx-2" style="width: 15rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <div>Icon</div>
-                              <p>Temp:</p>
-                              <p>Humidity</p>
-                            </div>
-                        </div>
-    
-                        <div class="card col-md-2 mx-2" style="width: 15rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <div>Icon</div>
-                              <p>Temp:</p>
-                              <p>Humidity</p>
-                            </div>
-                        </div>
-                        
-                        <div class="card col-md-2 mx-2" style="width: 15rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Date</h5>
-                              <div>Icon</div>
-                              <p>Temp:</p>
-                              <p>Humidity</p>
-                            </div>
-                        </div>
+                  
                     </div>
-                </div>
             </div>  
         </div>      
     </main> 
     
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/weather.js"></script>
+    
 
 </body>
 </html>
