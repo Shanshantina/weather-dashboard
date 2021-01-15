@@ -18,8 +18,7 @@ var getWeatherInfo = function(city) {
             .then(function(data) {    
                 displayWeather(data); 
                 displayUV(data);
-                fiveDaysForecast(data);
-                retreiveHistory(); 
+                fiveDaysForecast(data);                
             })
         } else {
             alert("Error: " + response.statusText);
@@ -52,6 +51,7 @@ function inputCity(event) {
     localStorage.setItem("searchHistory", newCities); 
     getWeatherInfo(cityName);
     city.value = "";
+    retreiveHistory(); 
 }
 
 // when click the search button, get the city weather information
@@ -206,7 +206,6 @@ function retreiveHistory() {
             createList.textContent = searchHistory[i].cityName;
             createList.classList = "btn";
             createList.setAttribute("data-city", searchHistory[i].cityName);
-            // createList.setAttribute("type", "submit");
             cityList.append(createList);
             createList.addEventListener("click", function() {
                 var listButton = this.getAttribute("data-city");
@@ -215,3 +214,4 @@ function retreiveHistory() {
         }   
     }
 }
+retreiveHistory(); 
