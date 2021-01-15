@@ -51,6 +51,7 @@ function inputCity(event) {
     var newCities = JSON.stringify(searchHistory);
     localStorage.setItem("searchHistory", newCities); 
     getWeatherInfo(cityName);
+    city.value = "";
 }
 
 // when click the search button, get the city weather information
@@ -146,8 +147,8 @@ function fiveDaysForecast(d) {
     .then(function(data) {    
 
         for (var i = 0; i< 5; i++) {
-            
 
+            // put one day weather information in one card box
             var forecastEl = document.createElement("div");
             forecastEl.classList = "card-body";
             forecast.appendChild(forecastEl);
@@ -188,8 +189,7 @@ localStorage.clear();
 location.reload();
 });
 
-
-// retreive history search
+// retreive search history
 function retreiveHistory() {
     // retreive local storage
     var cityList = document.getElementById("history-list");
