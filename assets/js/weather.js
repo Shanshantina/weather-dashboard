@@ -146,7 +146,7 @@ function fiveDaysForecast(d) {
     // display 5-days forecast in here
     .then(function(data) {    
 
-        for (var i = 0; i< 5; i++) {
+        for (var i = 1; i< 6; i++) {
 
             // put one day weather information in one card box
             var forecastEl = document.createElement("div");
