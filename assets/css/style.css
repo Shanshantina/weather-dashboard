@@ -1,7 +1,6 @@
 :root {
-    --lightblue: rgba(155, 202, 214, 0.6);
-    --darkblue: rgba(3, 38, 47, 0.73);
-    --container: ;
+    --lightblue: rgba(123, 199, 218, 0.43);
+    --darkblue: rgba(2, 48, 59, 0.73);
 }
 
 body {
@@ -18,6 +17,11 @@ body {
     height: 7.5vw;
 }
 
+.header h1 {
+    text-shadow: 3px 3px var(--lightblue);
+}
+
+
 #today-info {
     margin-top: 33px;
     height: 16vw;
@@ -27,7 +31,11 @@ body {
     margin-top: 50px;
 }
 
-#search-bar, #clear-history {
+#search-bar {
+    gap: 10px;
+}
+
+#clear-history {
     margin-top: 35px;
 }
 
@@ -37,10 +45,15 @@ body {
     transition: all .5s ease-out;
     background-size: 1px 100px;
     background-position: 0 -10px;
+    color: var(--darkblue);
 }
 
 .btn:hover {
     background-position: 1px -50px;
+}
+
+.btn:focus {
+    outline: none;
 }
 
 /* change UV color base on the UVI number */

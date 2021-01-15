@@ -156,8 +156,9 @@ function fiveDaysForecast(d) {
             // display dates
             var dateDiv = document.createElement("div");
             dateDiv.classList = "card-title";
+            dateDiv.setAttribute("style", "color: var(--darkblue)");
             var forecasetDate = moment.utc(data.daily[i].dt * 1000).format("dddd, MMM DD");
-            dateDiv.innerHTML = '<h5 class="font-weight-bold">' + forecasetDate + "</h5>";
+            dateDiv.innerHTML = '<h4>' + forecasetDate + "</h4>";
             forecastEl.appendChild(dateDiv);
 
             // display weather icon
@@ -168,6 +169,7 @@ function fiveDaysForecast(d) {
             // display temperature
             var temperatureDiv = document.createElement("div");
             temperatureDiv.classList = "card-text";
+            temperatureDiv.setAttribute("style", "color: var(--darkblue)");
             temperatureDiv.innerHTML = "<p>" + Math.round(parseFloat(data.daily[i].temp.day) - 273.15) + "&#8451" + " / " 
                                + Math.round((parseFloat((data.daily[i].temp.day)-273.15)*1.8) + 32) + "&#x2109" + "</p>";
             forecastEl.appendChild(temperatureDiv);
@@ -175,6 +177,7 @@ function fiveDaysForecast(d) {
             // display humidity
             var humidityDiv = document.createElement("div");
             humidityDiv.classList = "card-text";
+            humidityDiv.setAttribute("style", "color: var(--darkblue)");
             humidityDiv.innerHTML = "<p>" + "Humidity: " + data.daily[i].humidity + "%" + "</p>";
             forecastEl.appendChild(humidityDiv);        
         }
