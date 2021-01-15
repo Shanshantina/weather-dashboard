@@ -1,7 +1,7 @@
 # weather-dashboard
 
 ## Description
-The weather dashboard made by using the OpenWeather API (https://openweathermap.org/api) to retrieve weather data for cities for travelers.
+The weather dashboard made by using the [OpenWeatherAPI](https://openweathermap.org/api) to retrieve weather data for cities for travelers.
 
 Criteria selections including:
 1. When user searches for a city, it presents current and future conditions for that city and that city is added to the search history.
@@ -14,11 +14,12 @@ Criteria selections including:
 * HTML
 * CSS
 * JavaScript
+* [OpenWeatherAPI](https://openweathermap.org/api)
 
 ## Preview
 [Launch Weather Dashboard](https://shanshantina.github.io/weather-dashboard/)
 
-![demo]()
+![demo](./assets/image/weather-dashboard-demo.gif)
 
 ## Resources
 The lists of resources used to complete this challenge:
