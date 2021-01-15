@@ -74,3 +74,7 @@ body {
 #forecast {
     display: contents;
 }
+
+.list {
+    display: grid;
+}

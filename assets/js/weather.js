@@ -6,13 +6,9 @@ var city = document.getElementById("cityname");
 var date = moment().format("LL");
 
 
-var getWeatherInfo = function(event) {
-    event.preventDefault();
-    // get the input search city name
-    var cityName = city.value.trim();
-
+var getWeatherInfo = function(city) {
     // get Openweather api url
-    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
     // request the information from Openweather website and use json to return the info
     fetch(apiUrl).then(function(response) {
         // check if the request was successful
@@ -22,24 +18,28 @@ var getWeatherInfo = function(event) {
             .then(function(data) {    
                 displayWeather(data); 
                 displayUV(data);
-                fiveDaysForecast(data); 
+                fiveDaysForecast(data);
+                retreiveHistory(); 
             })
         } else {
             alert("Error: " + response.statusText);
         } 
     }) 
+}
 
+function inputCity(event) {
+    event.preventDefault();
+    // get the input search city name
+    var cityName = city.value.trim().toUpperCase();
 
-    // check if city name inputed
-    if(!cityName) {
+       if(!cityName) {
         alert("Please input a city name.");
         return false;
     } else {
-        var names = {
+        var inputNames = {
             cityName: cityName
         }
     }
-
     // save the history to location storage
     var searchHistory = localStorage.getItem("searchHistory");
     if (searchHistory === null) {
@@ -47,37 +47,14 @@ var getWeatherInfo = function(event) {
     } else {
         searchHistory = JSON.parse(searchHistory);
     }
-    searchHistory.push(names);
+    searchHistory.push(inputNames);
     var newCities = JSON.stringify(searchHistory);
-    localStorage.setItem("searchHistory", newCities);
-
-    // clear the history
-    var clearHistory = document.getElementById("clear-history");
-    clearHistory.addEventListener("click", function() {
-    localStorage.clear();
-    location.reload();
-    });
-
-
-    // retreive local storage
-    var cityList = document.getElementById("history-list");
- 
-     if (searchHistory !==null) {
-        for (var i=0; i<searchHistory.length;i++) {
-            var createList = document.createElement("button");
-            createList.textContent = searchHistory[i].cityName;
-            createList.classList = "btn";
-            createList.setAttribute("id", "historySearch");
-            createList.setAttribute("type", "submit");
-            cityList.appendChild(createList);
-        }
-        
-     }
- 
+    localStorage.setItem("searchHistory", newCities); 
+    getWeatherInfo(cityName);
 }
 
 // when click the search button, get the city weather information
-searchWeather.addEventListener("click", getWeatherInfo);
+searchWeather.addEventListener("click", inputCity);
 
 // show the weather information of the searched city
 function displayWeather(d) {
@@ -101,9 +78,6 @@ function displayWeather(d) {
     searchedTemperature.innerHTML = "Temperature: "+ celsius + "&#8451" + " / " + fahrenheit + "&#x2109";
     searchedHumidity.innerHTML = "Humidity: " + d.main.humidity + "%";
     searchedWindSpeed.innerHTML = "Wind Speed: " + d.wind.speed + "MPH";
-    
-
-    
 }
 
 // display UV data linked from Openweather website
@@ -204,4 +178,37 @@ function fiveDaysForecast(d) {
             forecastEl.appendChild(humidityDiv);        
         }
     })
+}
+
+
+// clear the history
+var clearHistory = document.getElementById("clear-history");
+clearHistory.addEventListener("click", function() {
+localStorage.clear();
+location.reload();
+});
+
+
+// retreive history search
+function retreiveHistory() {
+    // retreive local storage
+    var cityList = document.getElementById("history-list");
+    var searchHistory = localStorage.getItem("searchHistory");
+    searchHistory = JSON.parse(searchHistory);
+    cityList.textContent="";
+     
+    if (searchHistory !==null) {
+        for (var i=0; i<searchHistory.length;i++) {
+            var createList = document.createElement("li");
+            createList.textContent = searchHistory[i].cityName;
+            createList.classList = "btn";
+            createList.setAttribute("data-city", searchHistory[i].cityName);
+            // createList.setAttribute("type", "submit");
+            cityList.append(createList);
+            createList.addEventListener("click", function() {
+                var listButton = this.getAttribute("data-city");
+                getWeatherInfo(listButton);
+            })
+        }   
+    }
 }
