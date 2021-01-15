@@ -87,7 +87,7 @@ function displayUV (d) {
     var uvIndex = document.getElementById("uvIndex");
     uvIndex.innerHTML = "UV Index: ";
 
-    var uvUrl = "http://api.openweathermap.org/data/2.5/onecall?lat=" + d.coord.lat + "&lon=" + d.coord.lon + "&exclude=current,minutely,hourly,alerts" + "&appid=" + apiKey;
+    var uvUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + d.coord.lat + "&lon=" + d.coord.lon + "&exclude=current,minutely,hourly,alerts" + "&appid=" + apiKey;
 
    fetch(uvUrl).then(function(response) {
        return response.json();
@@ -138,7 +138,7 @@ function displayUV (d) {
 function fiveDaysForecast(d) {
     var forecast = document.getElementById("forecast");
     forecast.textContent = "";
-    var forecastUrl = "http://api.openweathermap.org/data/2.5/onecall?lat=" + d.coord.lat + "&lon=" + d.coord.lon + "&exclude=current,minutely,hourly,alerts" + "&appid=" + apiKey;
+    var forecastUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + d.coord.lat + "&lon=" + d.coord.lon + "&exclude=current,minutely,hourly,alerts" + "&appid=" + apiKey;
     // use fetch to send the request and use json to receive the response
     fetch(forecastUrl).then(function(response) {
         return response.json();
@@ -163,7 +163,7 @@ function fiveDaysForecast(d) {
 
             // display weather icon
             var iconDiv = document.createElement("div");
-            iconDiv.innerHTML = "<img src = '" + "http://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + ".png" + "'>";
+            iconDiv.innerHTML = "<img src = '" + "https://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + ".png" + "'>";
             forecastEl.appendChild(iconDiv);
 
             // display temperature
