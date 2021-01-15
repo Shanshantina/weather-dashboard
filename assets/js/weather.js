@@ -1,4 +1,3 @@
-var date = moment().format("LL");
 // my api key number
 var apiKey = "c6b02be382cc331562fa36791b952fda"
 var searchWeather = document.getElementById("searchWeather");
@@ -11,12 +10,13 @@ var getWeatherInfo = function(event) {
     event.preventDefault();
     // get the input search city name
     var cityName = city.value.trim();
+
     // get Openweather api url
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
     // request the information from Openweather website and use json to return the info
     fetch(apiUrl).then(function(response) {
         // check if the request was successful
-        if (cityName) {
+        if (response.ok) {
             // display the information to the dashboard   
             return response.json()
             .then(function(data) {    
@@ -25,9 +25,55 @@ var getWeatherInfo = function(event) {
                 fiveDaysForecast(data); 
             })
         } else {
-            document.location.replace("./index.html");
+            alert("Error: " + response.statusText);
         } 
     }) 
+
+
+    // check if city name inputed
+    if(!cityName) {
+        alert("Please input a city name.");
+        return false;
+    } else {
+        var names = {
+            cityName: cityName
+        }
+    }
+
+    // save the history to location storage
+    var searchHistory = localStorage.getItem("searchHistory");
+    if (searchHistory === null) {
+        searchHistory = [];
+    } else {
+        searchHistory = JSON.parse(searchHistory);
+    }
+    searchHistory.push(names);
+    var newCities = JSON.stringify(searchHistory);
+    localStorage.setItem("searchHistory", newCities);
+
+    // clear the history
+    var clearHistory = document.getElementById("clear-history");
+    clearHistory.addEventListener("click", function() {
+    localStorage.clear();
+    location.reload();
+    });
+
+
+    // retreive local storage
+    var cityList = document.getElementById("history-list");
+ 
+     if (searchHistory !==null) {
+        for (var i=0; i<searchHistory.length;i++) {
+            var createList = document.createElement("button");
+            createList.textContent = searchHistory[i].cityName;
+            createList.classList = "btn";
+            createList.setAttribute("id", "historySearch");
+            createList.setAttribute("type", "submit");
+            cityList.appendChild(createList);
+        }
+        
+     }
+ 
 }
 
 // when click the search button, get the city weather information
@@ -159,4 +205,3 @@ function fiveDaysForecast(d) {
         }
     })
 }
-
