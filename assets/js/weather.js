@@ -3,7 +3,6 @@ var apiKey = "c6b02be382cc331562fa36791b952fda"
 var searchWeather = document.getElementById("searchWeather");
 var weatherIcon = document.querySelector(".weather-icon");
 var city = document.getElementById("cityname");
-var date = moment().format("LL");
 
 
 var getWeatherInfo = function(city) {
@@ -65,7 +64,7 @@ function displayWeather(d) {
     var searchedHumidity = document.getElementById("cityHumidity");
     var searchedWindSpeed = document.getElementById("cityWindSpeed");
  
-    
+    var date = moment(d.dt * 1000).format("LL");
     // calculate the temperature to celsius and fahrenheit
     var celsius = Math.round(parseFloat(d.main.temp) - 273.15);
     var fahrenheit = Math.round((parseFloat((d.main.temp)-273.15)*1.8) + 32);
